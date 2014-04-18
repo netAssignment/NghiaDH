@@ -1,0 +1,23 @@
+﻿@model BookManagement.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Category</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.categoryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.categoryName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.categoryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

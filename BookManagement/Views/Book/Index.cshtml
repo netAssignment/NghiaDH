@@ -1,0 +1,78 @@
+﻿@model IEnumerable<BookManagement.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Insert new Book", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author.authorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description_short)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.categoryName)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author.authorName)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.image)*@
+            @{string name = @item.image;}
+
+            @if (name == null) { name = "no_image.png"; }
+            <img src="~/Images/books/@name" />
+                        
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description_short)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.categoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.bookID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.bookID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.bookID })
+        </td>
+    </tr>
+}
+</table>
+
+<script>
+    $("#category").removeClass("current-top-menu");
+    $("#author").removeClass("current-top-menu");
+    $("#book").addClass("current-top-menu");
+    $("#comment").removeClass("current-top-menu");
+    $("#role").removeClass("current-top-menu");
+    $("#account").removeClass("current-top-menu");
+</script>

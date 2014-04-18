@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BookManagement.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.commentContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.account.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book.bookName)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.commentContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.account.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book.bookName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.commentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.commentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.commentID })
+        </td>
+    </tr>
+}
+</table>
+
+<script>
+    $("#category").removeClass("current-top-menu");
+    $("#author").removeClass("current-top-menu");
+    $("#book").removeClass("current-top-menu");
+    $("#comment").addClass("current-top-menu");
+    $("#role").removeClass("current-top-menu");
+    $("#account").removeClass("current-top-menu");
+</script>

@@ -1,0 +1,37 @@
+﻿@model BookManagement.Models.Account
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Account</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.username)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.username)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.accountID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

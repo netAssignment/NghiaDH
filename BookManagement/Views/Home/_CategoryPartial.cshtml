@@ -1,0 +1,10 @@
+﻿@model List<BookManagement.Models.Category>
+
+<h1>@ViewBag.Message</h1>
+<ul>
+    <li>@Html.ActionLink("All", "Index", "Home")</li>
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.categoryName, "Index", "Home", new { id = item.categoryID }, null)</li>
+    }
+</ul>

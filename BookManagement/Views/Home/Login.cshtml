@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    <div style="display: table; width: 150px;">
+        <div style="display: table-row; margin-top: 5px;">
+            <div style="display: table-cell; width: 30%; font-size: 15px;">Username: </div>
+            <div style="display: table-cell">
+                <input type="text" placeholder="Username" />
+            </div>
+        </div>
+        <div style="display: table-row; margin-top: 5px;">
+            <div style="display: table-cell; width: 30%; font-size: 15px;">Password: </div>
+            <div style="display: table-cell">
+                <input type="password" placeholder="Password" />
+            </div>
+        </div>
+        <p class="action_button"><input type="submit" value="Login" /></p>
+    </div>
+}
+
+<script>
+    $("#home").removeClass("current-top-menu");
+    $("#about").removeClass("current-top-menu");
+    $("#signin").addClass("current-top-menu");
+    $("#signup").removeClass("current-top-menu");
+</script>
+

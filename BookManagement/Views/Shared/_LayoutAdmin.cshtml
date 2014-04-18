@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.TitleAdmin</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div id="container">
+        <div id="menu">
+            <ul id="admin">
+                <li>@Html.ActionLink("Category", "Index", "Category", routeValues: null, htmlAttributes: new { @id = "category" })</li>
+                <li>@Html.ActionLink("Author", "Index", "Author", routeValues: null, htmlAttributes: new { @id = "author" })</li>
+                <li>@Html.ActionLink("Book", "Index", "Book", routeValues: null, htmlAttributes: new { @id = "book" })</li>
+                <li>@Html.ActionLink("Comment", "Index", "Comment", routeValues: null, htmlAttributes: new { @id = "comment" })</li>                
+                <li>@Html.ActionLink("Role", "Index", "Role", routeValues: null, htmlAttributes: new { @id = "role" })</li>
+                <li>@Html.ActionLink("Account", "Index", "Account", routeValues: null, htmlAttributes: new { @id = "account" })</li>
+            </ul>
+        </div>
+
+        <div id="content">
+            @RenderBody()
+        </div>
+        <footer id="footer">
+            Copyright © 2014 <a href="#"><strong>UTE</strong></a> | Designed by Huu Nghia Doan
+        </footer>
+    </div>
+</body>
+</html>
+
+@RenderSection("scripts", required: false)

@@ -1,0 +1,36 @@
+﻿@model List<BookManagement.Models.Book>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ int count = 0;}
+@foreach (var item in Model)
+{
+    count++;
+    <div class="product_box">
+        <h1>@Html.ActionLink(@item.bookName, "Detail", "Home", new { id = @item.bookID }, null)</h1>
+        <img src="~/Images/books/@item.image" />
+        <div class="product_info">
+            <span>@item.Author.authorName</span>
+            <p>@item.description_short</p>
+            <div class="detail_button">@Html.ActionLink("Detail", "Detail", "Home", new { id = @item.bookID }, null)</div>
+        </div>
+        <div class="cleaner">&nbsp;</div>
+    </div>
+    if (count % 2 != 0)
+    {
+    <div class="cleaner_with_width">&nbsp;</div>
+    }
+    else
+    {
+    <div class="cleaner_with_height">&nbsp;</div>
+    }
+}
+
+<script>
+    $("#home").addClass("current-top-menu");
+    $("#about").removeClass("current-top-menu");
+    $("#signin").removeclass("current-top-menu");
+    $("#signup").removeClass("current-top-menu");
+</script>

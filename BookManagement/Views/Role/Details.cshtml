@@ -1,0 +1,23 @@
+﻿@model BookManagement.Models.Role
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Role</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.roleName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.roleName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.roleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

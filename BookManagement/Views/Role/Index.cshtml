@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BookManagement.Models.Role>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Insert new Role", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.roleName)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.roleName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.roleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.roleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.roleID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<script>
+    $("#category").removeClass("current");
+    $("#author").removeClass("current");
+    $("#book").removeClass("current");
+    $("#comment").removeClass("current");
+    $("#role").addClass("current");
+    $("#account").removeClass("current");
+</script>

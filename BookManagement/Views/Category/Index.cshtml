@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BookManagement.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Insert new Category", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.categoryName)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.categoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.categoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.categoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.categoryID })
+        </td>
+    </tr>
+}
+</table>
+
+<script>
+    $("#category").addClass("current-top-menu");
+    $("#author").removeClass("current-top-menu");
+    $("#book").removeClass("current-top-menu");
+    $("#comment").removeClass("current-top-menu");
+    $("#role").removeClass("current-top-menu");
+    $("#account").removeClass("current-top-menu");
+</script>

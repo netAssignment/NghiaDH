@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BookManagement.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create new Account", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.accountID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.accountID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.accountID })
+        </td>
+    </tr>
+}
+</table>
+
+<script>
+    $("#category").removeClass("current-top-menu");
+    $("#author").removeClass("current-top-menu");
+    $("#book").removeClass("current-top-menu");
+    $("#comment").removeClass("current-top-menu");
+    $("#role").removeClass("current-top-menu");
+    $("#account").addClass("current-top-menu");
+</script>

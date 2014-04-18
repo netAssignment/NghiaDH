@@ -1,0 +1,12 @@
+﻿@model System.String
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Error";
+}
+
+<hgroup class="title">
+    <h1 class="error">Error.</h1>
+    <h2 class="error">@Html.Raw(Model)</h2>
+    <a href="javascript:history.go(-1)">Back</a>
+</hgroup>

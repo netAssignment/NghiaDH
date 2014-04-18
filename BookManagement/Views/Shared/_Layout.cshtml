@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div id="container">
+        <div id="menu">
+            <ul id="not_login">
+                <li>@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @id = "home"})</li>
+                <li>@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { @id = "about"})</li>
+                <li>@Html.ActionLink("Admin", "Index", "Category")</li>
+            </ul>
+            <ul id="login">
+                <li>@Html.ActionLink("Login", "Login", "Home", routeValues: null, htmlAttributes: new { @id = "signin"})</li>
+                <li>@Html.ActionLink("Register", "Register", "Home", routeValues: null, htmlAttributes: new { @id = "signup"})</li>
+            </ul>
+        </div>
+        <header id="header">
+        </header>
+        <div id="content">
+
+            <div id="content_left">
+                <div class="content_left_section">
+                    @{Html.RenderAction("_CategoryPartial", "Home");}
+                </div>
+            </div>
+            <!-- end of content left -->
+
+            <div id="content_right">
+                @RenderBody()
+            </div>
+            <!-- end of content right -->
+
+            <div class="cleaner_with_height">&nbsp;</div>
+        </div>
+        <footer id="footer">
+            Copyright © 2014 <a href="#"><strong>UTE</strong></a> | Designed by Huu Nghia Doan
+        </footer>
+    </div>
+</body>
+</html>

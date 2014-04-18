@@ -1,0 +1,23 @@
+﻿@model BookManagement.Models.Author
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Author</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.authorName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.authorName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.authorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

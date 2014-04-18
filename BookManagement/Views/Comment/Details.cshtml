@@ -1,0 +1,37 @@
+﻿@model BookManagement.Models.Comment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Comment</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.commentContent)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.commentContent)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.account.username)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.account.username)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.book.bookName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.book.bookName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.commentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
